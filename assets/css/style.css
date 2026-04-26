@@ -368,9 +368,6 @@ html, body {
   color: var(--white);
   text-align: center;
   padding: 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 60px;
 }
 .footer-flex {
@@ -409,8 +406,14 @@ html, body {
   color: #ffd580;
 }
 .footer-copy {
-  text-align: left;
-  margin-left: 20px;
+  text-align: center;
+  color: #bfc3d1;
+  font-size: 0.95rem;
+  padding: 16px 0 0 0;
+}
+
+.footer-version {
+  text-align: center;
   color: #bfc3d1;
   font-size: 0.95rem;
   padding: 16px 0 0 0;
