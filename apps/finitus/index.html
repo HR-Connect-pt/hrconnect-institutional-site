@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://hrconnect.pt/apps/finitus/" />
   <meta property="og:title" content="Finitus — Time is finite. Live it!" />
   <meta property="og:description" content="The weeks you have lived, the time you have left, and one Stoic quote a day." />
-  <meta property="og:image" content="https://hrconnect.pt/apps/finitus/img/og.jpg" />
+  <meta property="og:image" content="https://hrconnect.pt/apps/finitus/img/quote.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
@@ -102,24 +102,17 @@
 
     .shot {
       width: 100%;
-      max-width: 320px;
-      aspect-ratio: 0.66;
-      overflow: hidden;
+      max-width: 380px;
       border-radius: 20px;
+      overflow: hidden;
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
     }
 
     .shot img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
     }
-
-    .shot--home img     { object-position: center 24%; }
-    .shot--widget       { max-width: 380px; aspect-ratio: 0.78; }
-    .shot--widget img   { object-position: center 76%; }
-    .shot--settings img { object-position: center bottom; }
 
     /* ---------- Hero ---------- */
 
@@ -230,12 +223,18 @@
       background: var(--taupe-light);
     }
 
+    /* The widget list now sits on a light section, the privacy link on a dark one. */
+    .sizes--light li { color: var(--text); }
+    .sizes--light li::before { background: var(--taupe); }
+
     .link-more {
       display: inline-block;
       margin-top: 0.6rem;
       color: var(--taupe);
       font-weight: 600;
     }
+
+    .link-more--dark { color: var(--taupe-light); }
 
     /* ---------- Progress bar (mirrors the app) ---------- */
 
@@ -325,8 +324,8 @@
         </div>
       </div>
       <div class="row-shot">
-        <div class="shot shot--home">
-          <img src="img/home.jpg" width="507" height="1100"
+        <div class="shot">
+          <img src="img/home.jpg" width="599" height="1300"
                alt="Finitus running on a phone, showing life lived and time remaining with a Stoic quote" />
         </div>
       </div>
@@ -359,15 +358,33 @@
     </div>
   </section>
 
-  <!-- ---------- Widget ---------- -->
+  <!-- ---------- One quote a day ---------- -->
   <section class="section section--ink">
     <div class="wrap row row--flip">
       <div class="row-copy">
-        <h2 data-en="The best of Stoicism, right on your widget"
-            data-pt="O melhor do estoicismo, no teu widget">The best of Stoicism, right on your widget</h2>
-        <p data-en="A new Stoic quote every day, from Seneca, Marcus Aurelius, Epictetus and others. Read it in the app, share it with someone, or keep it in front of you on your home screen."
-           data-pt="Uma nova citação estoica por dia, de Séneca, Marco Aurélio, Epicteto e outros. Lê-a na app, partilha-a com alguém, ou mantém-na à vista no ecrã principal.">A new Stoic quote every day, from Seneca, Marcus Aurelius, Epictetus and others.</p>
-        <ul class="sizes">
+        <h2 data-en="One Stoic quote a day" data-pt="Uma citação estoica por dia">One Stoic quote a day</h2>
+        <p data-en="Seneca, Marcus Aurelius, Epictetus and the rest — a new line every day to guide your reflection and remind you of what truly matters."
+           data-pt="Séneca, Marco Aurélio, Epicteto e os restantes — uma frase nova por dia para guiar a tua reflexão e lembrar-te do que realmente importa.">Seneca, Marcus Aurelius, Epictetus and the rest — a new line every day.</p>
+        <p data-en="Read it, sit with it, and share it with someone in a single tap."
+           data-pt="Lê-a, deixa-a assentar, e partilha-a com alguém num só toque.">Read it, sit with it, and share it with someone in a single tap.</p>
+      </div>
+      <div class="row-shot">
+        <div class="shot">
+          <img src="img/quote.jpg" width="599" height="1300"
+               alt="Finitus quote card: If today were your last day, what would you do?" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Widget ---------- -->
+  <section class="section section--paper">
+    <div class="wrap row">
+      <div class="row-copy">
+        <h2 data-en="Always on your home screen" data-pt="Sempre no teu ecrã principal">Always on your home screen</h2>
+        <p data-en="Keep your progress and the quote of the day in front of you, without opening the app."
+           data-pt="Mantém o teu progresso e a citação do dia à vista, sem sequer abrires a app.">Keep your progress and the quote of the day in front of you, without opening the app.</p>
+        <ul class="sizes sizes--light">
           <li data-en="Small — your percentage of life lived and the time you have left"
               data-pt="Pequeno — a percentagem de vida vivida e o tempo que te resta">Small — your percentage of life lived and the time you have left</li>
           <li data-en="Medium — the same, plus the Stoic quote of the day"
@@ -377,8 +394,8 @@
         </ul>
       </div>
       <div class="row-shot">
-        <div class="shot shot--widget">
-          <img src="img/widget.jpg" width="507" height="1100"
+        <div class="shot">
+          <img src="img/widget.jpg" width="599" height="1300"
                alt="The Finitus widget on a home screen, showing a Seneca quote above the lived and remaining bar" />
         </div>
       </div>
@@ -386,20 +403,20 @@
   </section>
 
   <!-- ---------- Privacy ---------- -->
-  <section class="section section--paper">
-    <div class="wrap row">
+  <section class="section section--ink">
+    <div class="wrap row row--flip">
       <div class="row-copy">
         <h2 data-en="Private by design" data-pt="Privado por construção">Private by design</h2>
         <p data-en="Your date of birth and your life expectancy are stored on your device and never leave it. There is no server holding your life."
            data-pt="A tua data de nascimento e a tua esperança de vida ficam guardadas no teu dispositivo e nunca saem de lá. Não há servidor nenhum a guardar a tua vida.">Your date of birth and your life expectancy are stored on your device and never leave it.</p>
         <p data-en="Anonymous usage data is only collected if you agree to it, and crash reports can be switched off — both in Settings, at any time."
            data-pt="Os dados anónimos de utilização só são recolhidos se concordares, e os relatórios de erros podem ser desativados — tudo nas Definições, a qualquer momento.">Anonymous usage data is only collected if you agree to it, and crash reports can be switched off.</p>
-        <a class="link-more" href="https://hrconnect.pt/assets/public/finitusapp/FinitusAppPrivacyPolicy.html"
+        <a class="link-more link-more--dark" href="https://hrconnect.pt/assets/public/finitusapp/FinitusAppPrivacyPolicy.html"
            data-en="Read the privacy policy" data-pt="Ler a política de privacidade">Read the privacy policy</a>
       </div>
       <div class="row-shot">
-        <div class="shot shot--settings">
-          <img src="img/settings.jpg" width="507" height="1100"
+        <div class="shot">
+          <img src="img/settings.jpg" width="599" height="1300"
                alt="The Finitus settings screen, with the birthday and life expectancy fields and the consent toggles" />
         </div>
       </div>
