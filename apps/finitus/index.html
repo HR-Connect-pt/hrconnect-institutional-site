@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finitus — Time is finite. Live it!</title>
+  <meta name="description" content="Finitus shows the weeks you have lived and the time you have left, with one Stoic quote a day — on your phone and on your home screen widget." />
+  <link rel="canonical" href="https://hrconnect.pt/apps/finitus/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hrconnect.pt/apps/finitus/" />
+  <meta property="og:title" content="Finitus — Time is finite. Live it!" />
+  <meta property="og:description" content="The weeks you have lived, the time you have left, and one Stoic quote a day." />
+  <meta property="og:image" content="https://hrconnect.pt/apps/finitus/img/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #0D0D0D;
+      --ink-soft: #151515;
+      --cream: #F2E9DA;
+      --taupe: #8A7052;
+      --taupe-light: #C9B79C;
+      --paper: #FAF3EE;
+      --text: #1A1A1A;
+      --serif: "Baskervville", Georgia, "Times New Roman", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- Language switcher ---------- */
+
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      display: flex;
+      gap: 0.7rem;
+      z-index: 5;
+    }
+
+    .lang-switch span {
+      cursor: pointer;
+      font-size: 1.5rem;
+      line-height: 1;
+      opacity: 0.35;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .lang-switch span:hover { transform: scale(1.1); }
+    .lang-switch span.active { opacity: 1; }
+    .lang-switch span:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+    /* ---------- Shared section layout ---------- */
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 840px) {
+      .row {
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 4rem;
+        text-align: left;
+        justify-items: stretch;
+      }
+      .row--flip .row-copy { order: 2; }
+      .row--flip .row-shot { order: 1; }
+    }
+
+    .row-shot { display: flex; justify-content: center; }
+
+    .shot {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 0.66;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .shot--home img     { object-position: center 24%; }
+    .shot--widget       { max-width: 380px; aspect-ratio: 0.78; }
+    .shot--widget img   { object-position: center 76%; }
+    .shot--settings img { object-position: center bottom; }
+
+    /* ---------- Hero ---------- */
+
+    .hero {
+      position: relative;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 5.5rem 0 5rem;
+    }
+
+    .wordmark {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      letter-spacing: 0.5px;
+      line-height: 1;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2.3rem, 6vw, 3.6rem);
+      line-height: 1.12;
+      letter-spacing: -0.5px;
+      text-wrap: balance;
+      margin-bottom: 1.2rem;
+    }
+
+    .lede {
+      font-size: 1.1rem;
+      color: rgba(242, 233, 218, 0.78);
+      max-width: 34ch;
+      margin: 0 auto 2.2rem;
+    }
+
+    @media (min-width: 840px) {
+      .lede { margin: 0 0 2.2rem; }
+    }
+
+    .cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    @media (min-width: 840px) {
+      .cta { align-items: flex-start; }
+    }
+
+    .btn-store {
+      display: inline-block;
+      background: var(--cream);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 999px;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-store:hover { transform: translateY(-2px); background: #fff; }
+
+    .soon {
+      font-size: 0.92rem;
+      color: rgba(242, 233, 218, 0.55);
+    }
+
+    /* Add the App Store badge here once the iOS app is live; the listing 404s until then. */
+
+    /* ---------- Content sections ---------- */
+
+    .section { padding: 5rem 0; }
+    .section--paper { background: var(--paper); color: var(--text); }
+    .section--ink { background: var(--ink-soft); color: var(--cream); }
+
+    .section h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(1.8rem, 4.2vw, 2.5rem);
+      line-height: 1.2;
+      text-wrap: balance;
+      margin-bottom: 1rem;
+    }
+
+    .section p { font-size: 1.05rem; margin-bottom: 1rem; }
+    .section--ink p { color: rgba(242, 233, 218, 0.78); }
+
+    .sizes { list-style: none; margin-top: 1.4rem; }
+
+    .sizes li {
+      padding-left: 1.1rem;
+      position: relative;
+      margin-bottom: 0.55rem;
+      color: rgba(242, 233, 218, 0.78);
+      font-size: 1rem;
+    }
+
+    .sizes li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--taupe-light);
+    }
+
+    .link-more {
+      display: inline-block;
+      margin-top: 0.6rem;
+      color: var(--taupe);
+      font-weight: 600;
+    }
+
+    /* ---------- Progress bar (mirrors the app) ---------- */
+
+    .gauge {
+      width: 100%;
+      max-width: 420px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 10px 30px rgba(138, 112, 82, 0.13);
+      font-family: var(--serif);
+    }
+
+    .gauge-labels, .gauge-values {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.98rem;
+    }
+
+    .gauge-labels { color: var(--text); margin-bottom: 0.5rem; }
+    .gauge-values { color: var(--taupe); margin-top: 0.5rem; }
+
+    .gauge-bar {
+      height: 26px;
+      border-radius: 999px;
+      background: #EFE5DA;
+      overflow: hidden;
+    }
+
+    .gauge-fill {
+      width: 56.68%;
+      height: 100%;
+      border-radius: 999px;
+      background: var(--taupe);
+    }
+
+    /* ---------- Footer ---------- */
+
+    footer {
+      background: var(--ink);
+      color: rgba(242, 233, 218, 0.6);
+      padding: 3rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .foot-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.6rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .foot-links a {
+      color: var(--cream);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(242, 233, 218, 0.3);
+      padding-bottom: 2px;
+    }
+
+    .foot-links a:hover { border-bottom-color: var(--cream); }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+
+  <!-- ---------- Hero ---------- -->
+  <header class="hero">
+    <div class="lang-switch" role="group" aria-label="Language selection">
+      <span id="lang-en" class="active" aria-pressed="true" role="button" tabindex="0" title="English">🇬🇧</span>
+      <span id="lang-pt" aria-pressed="false" role="button" tabindex="0" title="Português">🇵🇹</span>
+    </div>
+
+    <div class="wrap row">
+      <div class="row-copy">
+        <p class="wordmark">Finitus</p>
+        <h1 data-en="Time is finite. Live it!" data-pt="O tempo é finito. Vive-o!">Time is finite. Live it!</h1>
+        <p class="lede"
+           data-en="The weeks you have lived, the time you have left, and one Stoic quote a day — on your phone and on your home screen."
+           data-pt="As semanas que já viveste, o tempo que te resta e uma citação estoica por dia — no telemóvel e no ecrã principal.">The weeks you have lived, the time you have left, and one Stoic quote a day.</p>
+        <div class="cta">
+          <a class="btn-store" href="https://play.google.com/store/apps/details?id=pt.hrconnect.finitus"
+             data-en="Get it on Google Play" data-pt="Obter no Google Play">Get it on Google Play</a>
+          <span class="soon" data-en="Coming soon to the App Store" data-pt="Em breve na App Store">Coming soon to the App Store</span>
+        </div>
+      </div>
+      <div class="row-shot">
+        <div class="shot shot--home">
+          <img src="img/home.jpg" width="507" height="1100"
+               alt="Finitus running on a phone, showing life lived and time remaining with a Stoic quote" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ---------- Your life at a glance ---------- -->
+  <section class="section section--paper">
+    <div class="wrap row">
+      <div class="row-copy">
+        <h2 data-en="Your life at a glance" data-pt="A tua vida num relance">Your life at a glance</h2>
+        <p data-en="Enter your date of birth and your life expectancy. Finitus turns them into a single bar: how much you have already lived, and how much is still ahead of you."
+           data-pt="Indica a tua data de nascimento e a tua esperança de vida. O Finitus transforma-as numa única barra: quanto já viveste e quanto ainda tens pela frente.">Enter your date of birth and your life expectancy. Finitus turns them into a single bar.</p>
+        <p data-en="No account, no sign-up. Two answers and you are done."
+           data-pt="Sem conta, sem registo. Duas respostas e está feito.">No account, no sign-up. Two answers and you are done.</p>
+      </div>
+      <div class="row-shot">
+        <div class="gauge" aria-hidden="true">
+          <div class="gauge-labels">
+            <span data-en="Lived" data-pt="Vivido">Lived</span>
+            <span data-en="Remaining" data-pt="Restante">Remaining</span>
+          </div>
+          <div class="gauge-bar"><div class="gauge-fill"></div></div>
+          <div class="gauge-values">
+            <span>56.68%</span>
+            <span data-en="34y 7m 23d" data-pt="34a 7m 23d">34y 7m 23d</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Widget ---------- -->
+  <section class="section section--ink">
+    <div class="wrap row row--flip">
+      <div class="row-copy">
+        <h2 data-en="The best of Stoicism, right on your widget"
+            data-pt="O melhor do estoicismo, no teu widget">The best of Stoicism, right on your widget</h2>
+        <p data-en="A new Stoic quote every day, from Seneca, Marcus Aurelius, Epictetus and others. Read it in the app, share it with someone, or keep it in front of you on your home screen."
+           data-pt="Uma nova citação estoica por dia, de Séneca, Marco Aurélio, Epicteto e outros. Lê-a na app, partilha-a com alguém, ou mantém-na à vista no ecrã principal.">A new Stoic quote every day, from Seneca, Marcus Aurelius, Epictetus and others.</p>
+        <ul class="sizes">
+          <li data-en="Small — your percentage of life lived and the time you have left"
+              data-pt="Pequeno — a percentagem de vida vivida e o tempo que te resta">Small — your percentage of life lived and the time you have left</li>
+          <li data-en="Medium — the same, plus the Stoic quote of the day"
+              data-pt="Médio — o mesmo, mais a citação estoica do dia">Medium — the same, plus the Stoic quote of the day</li>
+          <li data-en="Large — more space, more detail"
+              data-pt="Grande — mais espaço, mais detalhe">Large — more space, more detail</li>
+        </ul>
+      </div>
+      <div class="row-shot">
+        <div class="shot shot--widget">
+          <img src="img/widget.jpg" width="507" height="1100"
+               alt="The Finitus widget on a home screen, showing a Seneca quote above the lived and remaining bar" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Privacy ---------- -->
+  <section class="section section--paper">
+    <div class="wrap row">
+      <div class="row-copy">
+        <h2 data-en="Private by design" data-pt="Privado por construção">Private by design</h2>
+        <p data-en="Your date of birth and your life expectancy are stored on your device and never leave it. There is no server holding your life."
+           data-pt="A tua data de nascimento e a tua esperança de vida ficam guardadas no teu dispositivo e nunca saem de lá. Não há servidor nenhum a guardar a tua vida.">Your date of birth and your life expectancy are stored on your device and never leave it.</p>
+        <p data-en="Anonymous usage data is only collected if you agree to it, and crash reports can be switched off — both in Settings, at any time."
+           data-pt="Os dados anónimos de utilização só são recolhidos se concordares, e os relatórios de erros podem ser desativados — tudo nas Definições, a qualquer momento.">Anonymous usage data is only collected if you agree to it, and crash reports can be switched off.</p>
+        <a class="link-more" href="https://hrconnect.pt/assets/public/finitusapp/FinitusAppPrivacyPolicy.html"
+           data-en="Read the privacy policy" data-pt="Ler a política de privacidade">Read the privacy policy</a>
+      </div>
+      <div class="row-shot">
+        <div class="shot shot--settings">
+          <img src="img/settings.jpg" width="507" height="1100"
+               alt="The Finitus settings screen, with the birthday and life expectancy fields and the consent toggles" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Footer ---------- -->
+  <footer>
+    <div class="wrap">
+      <ul class="foot-links">
+        <li><a href="/apps/finitus/support/" data-en="Support" data-pt="Suporte">Support</a></li>
+        <li><a href="https://hrconnect.pt/assets/public/finitusapp/FinitusAppPrivacyPolicy.html"
+               data-en="Privacy Policy" data-pt="Política de Privacidade">Privacy Policy</a></li>
+        <li><a href="https://hrconnect.pt/" data-en="H&amp;R Connect" data-pt="H&amp;R Connect">H&amp;R Connect</a></li>
+      </ul>
+      <p>© 2026 Harold Goncalves Unipessoal LDA · Finitus · <a href="mailto:support@hrconnect.pt">support@hrconnect.pt</a></p>
+    </div>
+  </footer>
+
+<script>
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+
+    // Update language buttons
+    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    document.getElementById('lang-pt').classList.toggle('active', lang === 'pt');
+    document.getElementById('lang-en').setAttribute('aria-pressed', lang === 'en');
+    document.getElementById('lang-pt').setAttribute('aria-pressed', lang === 'pt');
+  }
+
+  ['en', 'pt'].forEach(lang => {
+    const button = document.getElementById('lang-' + lang);
+    button.onclick = () => setLanguage(lang);
+    button.onkeydown = event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        setLanguage(lang);
+      }
+    };
+  });
+
+  setLanguage('en');
+</script>
+</body>
+</html>
