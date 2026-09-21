@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Finitus</title>
+  <meta name="description" content="Support page for the Finitus app: contact, frequently asked questions, widgets, notifications, privacy and data deletion." />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background: #ffffff;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 2px solid #1a1a1a;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    header .meta {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .lang-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .lang-switch span {
+      cursor: pointer;
+      font-size: 1.6rem;
+      line-height: 1;
+      opacity: 0.4;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .lang-switch span:hover { transform: scale(1.1); }
+    .lang-switch span.active { opacity: 1; }
+
+    .lang-switch span:focus-visible {
+      outline: 2px solid #1a1a1a;
+      outline-offset: 3px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 2.5rem 0 0.75rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem;
+      color: #333;
+    }
+
+    p {
+      margin-bottom: 0.9rem;
+    }
+
+    ul, ol {
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    a {
+      color: #1a1a1a;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #555;
+    }
+
+    .highlight-box {
+      background: #f7f7f7;
+      border-left: 3px solid #1a1a1a;
+      padding: 0.9rem 1.2rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.95rem;
+    }
+
+    .contact-block {
+      background: #f5f5f5;
+      border-radius: 6px;
+      padding: 1.2rem 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .contact-block p {
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-block .email {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .links-list {
+      list-style: none;
+      margin: 1rem 0 0 0;
+    }
+
+    .links-list li {
+      margin-bottom: 0.6rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e0e0e0;
+      font-size: 0.85rem;
+      color: #888;
+      text-align: center;
+    }
+
+    footer a { color: #888; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="lang-switch" role="group" aria-label="Language selection">
+    <span id="lang-en" class="active" aria-pressed="true" role="button" tabindex="0" title="English">🇬🇧</span>
+    <span id="lang-pt" aria-pressed="false" role="button" tabindex="0" title="Português">🇵🇹</span>
+  </div>
+
+  <header>
+    <h1 data-en="Finitus — Support" data-pt="Finitus — Suporte">Finitus — Support</h1>
+    <p class="meta"
+       data-en="App version 1.3.0 · Last updated: September 21, 2026"
+       data-pt="Versão da app 1.3.0 · Última atualização: 21 de setembro de 2026">App version 1.3.0 · Last updated: September 21, 2026</p>
+  </header>
+
+  <p data-en="Finitus is a life-progress tracker built around the philosophy of Memento Mori. It shows the weeks you have lived and the time you have left, based on your date of birth and your life expectancy, on your phone and on your home screen widget."
+     data-pt="O Finitus é um contador de progresso de vida construído à volta da filosofia Memento Mori. Mostra as semanas que já viveste e o tempo que te resta, a partir da tua data de nascimento e da tua esperança de vida, no telemóvel e no widget do ecrã principal.">Finitus is a life-progress tracker built around the philosophy of Memento Mori. It shows the weeks you have lived and the time you have left, based on your date of birth and your life expectancy, on your phone and on your home screen widget.</p>
+
+  <!-- Contact -->
+  <h2 data-en="Contact us" data-pt="Contactar-nos">Contact us</h2>
+  <p data-en="The fastest way to get help is by email. We reply within 2 business days."
+     data-pt="A forma mais rápida de obter ajuda é por email. Respondemos no prazo de 2 dias úteis.">The fastest way to get help is by email. We reply within 2 business days.</p>
+
+  <div class="contact-block">
+    <p data-en="Support email" data-pt="Email de suporte">Support email</p>
+    <p class="email"><a href="mailto:support@hrconnect.pt">support@hrconnect.pt</a></p>
+  </div>
+
+  <div class="highlight-box">
+    <p data-en="To help us answer faster, tell us your device model, your operating system version, the app version, and the steps that led to the problem."
+       data-pt="Para respondermos mais depressa, indica o modelo do teu dispositivo, a versão do sistema operativo, a versão da app e os passos que levaram ao problema.">To help us answer faster, tell us your device model, your operating system version, the app version, and the steps that led to the problem.</p>
+  </div>
+
+  <!-- FAQ -->
+  <h2 data-en="Frequently asked questions" data-pt="Perguntas frequentes">Frequently asked questions</h2>
+
+  <h3 data-en="How do I set or change my date of birth and life expectancy?"
+      data-pt="Como defino ou altero a minha data de nascimento e esperança de vida?">How do I set or change my date of birth and life expectancy?</h3>
+  <p data-en="Open Settings from the main screen, answer “When is your birthday?” and “What is your life expectancy?”, then tap Save. Your calendar and your widget update right away."
+     data-pt="Abre as Definições a partir do ecrã principal, responde a “Quando é o teu aniversário?” e “Qual é a tua esperança de vida?” e toca em Guardar. O teu calendário e o widget são atualizados de imediato.">Open Settings from the main screen, answer “When is your birthday?” and “What is your life expectancy?”, then tap Save.</p>
+
+  <h3 data-en="How do I add the widget to my home screen?"
+      data-pt="Como adiciono o widget ao ecrã principal?">How do I add the widget to my home screen?</h3>
+  <p data-en="Finitus includes a step-by-step tutorial: tap “Learn how to add widgets” on the main screen. In short:"
+     data-pt="O Finitus inclui um tutorial passo a passo: toca em “Aprende a adicionar widgets” no ecrã principal. Em resumo:">Finitus includes a step-by-step tutorial: tap “Learn how to add widgets” on the main screen. In short:</p>
+  <ul>
+    <li data-en="iPhone and iPad — touch and hold an empty area of the Home Screen until the apps jiggle, tap Edit in the top-left corner, choose Add Widget, search for Finitus, pick a size and tap Add Widget."
+        data-pt="iPhone e iPad — toca e mantém premida uma área vazia do ecrã principal até as apps começarem a tremer, toca em Editar no canto superior esquerdo, escolhe Adicionar widget, procura Finitus, escolhe um tamanho e toca em Adicionar widget.">iPhone and iPad — touch and hold an empty area of the Home Screen, tap Edit, choose Add Widget, search for Finitus, pick a size and tap Add Widget.</li>
+    <li data-en="Android — touch and hold an empty area of the home screen or the Finitus icon, tap Widgets, scroll to the Finitus widget, then drag it to the spot you want."
+        data-pt="Android — toca e mantém premida uma área vazia do ecrã principal ou o ícone do Finitus, toca em Widgets, procura o widget do Finitus e arrasta-o para o sítio que quiseres.">Android — touch and hold an empty area of the home screen or the Finitus icon, tap Widgets, find the Finitus widget, then drag it where you want it.</li>
+  </ul>
+  <p data-en="Three sizes are available: small (percentage of life lived and time remaining), medium (the same, plus a daily stoic quote) and large (more space and more detail)."
+     data-pt="Estão disponíveis três tamanhos: pequeno (percentagem de vida vivida e tempo restante), médio (o mesmo, mais uma citação estoica diária) e grande (mais espaço e mais detalhe).">Three sizes are available: small, medium and large.</p>
+
+  <h3 data-en="My widget is not showing the right numbers."
+      data-pt="O meu widget não mostra os números certos.">My widget is not showing the right numbers.</h3>
+  <p data-en="The operating system decides when a widget refreshes, so a change can take a few minutes to appear. Open Finitus once after saving your settings, and make sure battery saving modes are not restricting the app. If the numbers are still wrong after that, email us."
+     data-pt="É o sistema operativo que decide quando o widget é atualizado, por isso uma alteração pode demorar alguns minutos a aparecer. Abre o Finitus uma vez depois de guardares as definições e confirma que os modos de poupança de bateria não estão a restringir a app. Se mesmo assim os números continuarem errados, envia-nos um email.">The operating system decides when a widget refreshes, so a change can take a few minutes to appear.</p>
+
+  <h3 data-en="What is Finitus Pro and what does the “Notify me” button do?"
+      data-pt="O que é o Finitus Pro e o que faz o botão “Notificar-me”?">What is Finitus Pro and what does the “Notify me” button do?</h3>
+  <p data-en="Finitus Pro is a future version of the app with advanced widget customization and smart notifications. It is still in development and nothing is charged today. Tapping “Notify me” only puts you on the list to receive a single notification when Pro is released. You can stop it at any time by turning off Finitus notifications in your device settings."
+     data-pt="O Finitus Pro é uma versão futura da app com personalização avançada de widgets e notificações inteligentes. Está ainda em desenvolvimento e não é cobrado nada hoje. Tocar em “Notificar-me” apenas te coloca na lista para receberes uma única notificação quando o Pro for lançado. Podes cancelar a qualquer momento desativando as notificações do Finitus nas definições do dispositivo.">Finitus Pro is a future version of the app. Tapping “Notify me” only puts you on the list for a single notification when Pro is released.</p>
+
+  <h3 data-en="Which data does the app collect?"
+      data-pt="Que dados é que a app recolhe?">Which data does the app collect?</h3>
+  <p data-en="Your date of birth and your life expectancy are stored only on your device and never leave it. Anonymous usage analytics are collected only if you agree to it in Settings, and crash reports can be switched off in the same place. The full details are in the privacy policy linked below."
+     data-pt="A tua data de nascimento e a tua esperança de vida ficam guardadas apenas no teu dispositivo e nunca saem de lá. As estatísticas de utilização anónimas só são recolhidas se concordares nas Definições, e os relatórios de erros podem ser desativados no mesmo sítio. Os detalhes completos estão na política de privacidade ligada em baixo.">Your date of birth and your life expectancy are stored only on your device and never leave it.</p>
+
+  <h3 data-en="How do I delete my data?"
+      data-pt="Como apago os meus dados?">How do I delete my data?</h3>
+  <p data-en="Open Settings and tap “Clear Local Data” to erase everything stored on your device. Uninstalling the app removes it as well. To request the deletion of anonymous analytics or crash data, email us and we will take care of it."
+     data-pt="Abre as Definições e toca em “Limpar dados locais” para apagar tudo o que está guardado no teu dispositivo. Desinstalar a app também os remove. Para pedires a eliminação de dados anónimos de utilização ou de relatórios de erros, envia-nos um email e tratamos disso.">Open Settings and tap “Clear Local Data” to erase everything stored on your device.</p>
+
+  <h3 data-en="Which languages are supported?"
+      data-pt="Que idiomas são suportados?">Which languages are supported?</h3>
+  <p data-en="English, Portuguese (Portugal and Brazil), Spanish, French, German and Italian. Finitus follows the language of your device."
+     data-pt="Inglês, português (Portugal e Brasil), espanhol, francês, alemão e italiano. O Finitus segue o idioma do teu dispositivo.">English, Portuguese (Portugal and Brazil), Spanish, French, German and Italian.</p>
+
+  <h3 data-en="How do I report a bug or suggest a feature?"
+      data-pt="Como comunico um erro ou sugiro uma funcionalidade?">How do I report a bug or suggest a feature?</h3>
+  <p data-en="Use “Send Feedback” in Settings, or write to the support email above. Every message is read by the team that builds the app."
+     data-pt="Usa “Enviar comentários” nas Definições ou escreve para o email de suporte acima. Todas as mensagens são lidas pela equipa que faz a app.">Use “Send Feedback” in Settings, or write to the support email above.</p>
+
+  <!-- Links -->
+  <h2 data-en="Useful links" data-pt="Ligações úteis">Useful links</h2>
+  <ul class="links-list">
+    <li>
+      <a href="https://hrconnect.pt/assets/public/finitusapp/FinitusAppPrivacyPolicy.html"
+         data-en="Privacy Policy" data-pt="Política de Privacidade">Privacy Policy</a>
+    </li>
+    <!-- Add back once the iOS app is live on the App Store; the link 404s until then.
+    <li>
+      <a href="https://apps.apple.com/app/id6738554086"
+         data-en="Finitus on the App Store" data-pt="Finitus na App Store">Finitus on the App Store</a>
+    </li>
+    -->
+    <li>
+      <a href="https://play.google.com/store/apps/details?id=pt.hrconnect.finitus"
+         data-en="Finitus on Google Play" data-pt="Finitus no Google Play">Finitus on Google Play</a>
+    </li>
+    <li>
+      <a href="https://hrconnect.pt/" data-en="H&amp;R Connect" data-pt="H&amp;R Connect">H&amp;R Connect</a>
+    </li>
+  </ul>
+
+  <footer>
+    <p>© 2026 Harold Goncalves Unipessoal LDA · Finitus · <a href="mailto:support@hrconnect.pt">support@hrconnect.pt</a></p>
+  </footer>
+
+</div>
+
+<script>
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+
+    // Update language buttons
+    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    document.getElementById('lang-pt').classList.toggle('active', lang === 'pt');
+    document.getElementById('lang-en').setAttribute('aria-pressed', lang === 'en');
+    document.getElementById('lang-pt').setAttribute('aria-pressed', lang === 'pt');
+  }
+
+  ['en', 'pt'].forEach(lang => {
+    const button = document.getElementById('lang-' + lang);
+    button.onclick = () => setLanguage(lang);
+    button.onkeydown = event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        setLanguage(lang);
+      }
+    };
+  });
+
+  setLanguage('en');
+</script>
+</body>
+</html>
